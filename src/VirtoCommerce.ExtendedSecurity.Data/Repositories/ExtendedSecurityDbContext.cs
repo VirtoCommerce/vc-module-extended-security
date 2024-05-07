@@ -1,10 +1,11 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
-using VirtoCommerce.Platform.Data.Infrastructure;
+using VirtoCommerce.ExtendedSecurity.Core.Models;
+using VirtoCommerce.Platform.Security.Repositories;
 
 namespace VirtoCommerce.ExtendedSecurity.Data.Repositories;
 
-public class ExtendedSecurityDbContext : DbContextBase
+public class ExtendedSecurityDbContext : SecurityDbContext
 {
     public ExtendedSecurityDbContext(DbContextOptions<ExtendedSecurityDbContext> options)
         : base(options)
@@ -20,8 +21,7 @@ public class ExtendedSecurityDbContext : DbContextBase
     {
         base.OnModelCreating(modelBuilder);
 
-        //modelBuilder.Entity<ExtendedSecurityEntity>().ToTable("ExtendedSecurity").HasKey(x => x.Id);
-        //modelBuilder.Entity<ExtendedSecurityEntity>().Property(x => x.Id).HasMaxLength(128).ValueGeneratedOnAdd();
+        modelBuilder.Entity<ExtendedApplicationUser>().Property("Discriminator").HasDefaultValue(nameof(ExtendedApplicationUser));
 
         switch (Database.ProviderName)
         {
