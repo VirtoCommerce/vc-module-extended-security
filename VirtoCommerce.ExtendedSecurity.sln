@@ -1,0 +1,85 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AC9BD7E9-946D-497F-9B7C-0A1ED916E497}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VirtoCommerce.ExtendedSecurity.Web", "src\VirtoCommerce.ExtendedSecurity.Web\VirtoCommerce.ExtendedSecurity.Web.csproj", "{FBEF2D1F-0986-482D-AE0F-E893B5188585}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VirtoCommerce.ExtendedSecurity.Data", "src\VirtoCommerce.ExtendedSecurity.Data\VirtoCommerce.ExtendedSecurity.Data.csproj", "{91194770-D06D-45BE-9BB6-9111E6392022}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VirtoCommerce.ExtendedSecurity.Core", "src\VirtoCommerce.ExtendedSecurity.Core\VirtoCommerce.ExtendedSecurity.Core.csproj", "{64C942EE-13AF-4AAF-A60B-591BF941C686}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VirtoCommerce.ExtendedSecurity.Data.MySql", "src\VirtoCommerce.ExtendedSecurity.Data.MySql\VirtoCommerce.ExtendedSecurity.Data.MySql.csproj", "{249C799D-650D-44E1-A253-A13667FDA6F0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VirtoCommerce.ExtendedSecurity.Data.PostgreSql", "src\VirtoCommerce.ExtendedSecurity.Data.PostgreSql\VirtoCommerce.ExtendedSecurity.Data.PostgreSql.csproj", "{F68EEF67-C343-44E5-803E-0F72520F415C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VirtoCommerce.ExtendedSecurity.Data.SqlServer", "src\VirtoCommerce.ExtendedSecurity.Data.SqlServer\VirtoCommerce.ExtendedSecurity.Data.SqlServer.csproj", "{0A68FA6E-DBB5-4D14-93BD-8A40887ED822}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A7DA7770-69F6-4E07-82A7-688BFC576677}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VirtoCommerce.ExtendedSecurity.Tests", "tests\VirtoCommerce.ExtendedSecurity.Tests\VirtoCommerce.ExtendedSecurity.Tests.csproj", "{F400750C-CD70-406D-B9F3-16DD0613AFD8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0E0621C6-5191-4707-B683-134C62D41FF3}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		LICENSE = LICENSE
+		module.ignore = module.ignore
+		README.md = README.md
+		VirtoCommerce.ExtendedSecurity.sln.DotSettings = VirtoCommerce.ExtendedSecurity.sln.DotSettings
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBEF2D1F-0986-482D-AE0F-E893B5188585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBEF2D1F-0986-482D-AE0F-E893B5188585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBEF2D1F-0986-482D-AE0F-E893B5188585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBEF2D1F-0986-482D-AE0F-E893B5188585}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91194770-D06D-45BE-9BB6-9111E6392022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91194770-D06D-45BE-9BB6-9111E6392022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91194770-D06D-45BE-9BB6-9111E6392022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91194770-D06D-45BE-9BB6-9111E6392022}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64C942EE-13AF-4AAF-A60B-591BF941C686}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64C942EE-13AF-4AAF-A60B-591BF941C686}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64C942EE-13AF-4AAF-A60B-591BF941C686}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64C942EE-13AF-4AAF-A60B-591BF941C686}.Release|Any CPU.Build.0 = Release|Any CPU
+		{249C799D-650D-44E1-A253-A13667FDA6F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{249C799D-650D-44E1-A253-A13667FDA6F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{249C799D-650D-44E1-A253-A13667FDA6F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{249C799D-650D-44E1-A253-A13667FDA6F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F68EEF67-C343-44E5-803E-0F72520F415C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F68EEF67-C343-44E5-803E-0F72520F415C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F68EEF67-C343-44E5-803E-0F72520F415C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F68EEF67-C343-44E5-803E-0F72520F415C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A68FA6E-DBB5-4D14-93BD-8A40887ED822}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A68FA6E-DBB5-4D14-93BD-8A40887ED822}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A68FA6E-DBB5-4D14-93BD-8A40887ED822}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A68FA6E-DBB5-4D14-93BD-8A40887ED822}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F400750C-CD70-406D-B9F3-16DD0613AFD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F400750C-CD70-406D-B9F3-16DD0613AFD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F400750C-CD70-406D-B9F3-16DD0613AFD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F400750C-CD70-406D-B9F3-16DD0613AFD8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FBEF2D1F-0986-482D-AE0F-E893B5188585} = {AC9BD7E9-946D-497F-9B7C-0A1ED916E497}
+		{91194770-D06D-45BE-9BB6-9111E6392022} = {AC9BD7E9-946D-497F-9B7C-0A1ED916E497}
+		{64C942EE-13AF-4AAF-A60B-591BF941C686} = {AC9BD7E9-946D-497F-9B7C-0A1ED916E497}
+		{249C799D-650D-44E1-A253-A13667FDA6F0} = {AC9BD7E9-946D-497F-9B7C-0A1ED916E497}
+		{F68EEF67-C343-44E5-803E-0F72520F415C} = {AC9BD7E9-946D-497F-9B7C-0A1ED916E497}
+		{0A68FA6E-DBB5-4D14-93BD-8A40887ED822} = {AC9BD7E9-946D-497F-9B7C-0A1ED916E497}
+		{F400750C-CD70-406D-B9F3-16DD0613AFD8} = {A7DA7770-69F6-4E07-82A7-688BFC576677}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F6708B8-936F-46E9-A9F3-77835E1FF1D0}
+	EndGlobalSection
+EndGlobal

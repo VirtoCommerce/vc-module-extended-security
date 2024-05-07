@@ -1,0 +1,28 @@
+{
+  "ExtendedSecurity": {
+    "blades": {
+      "hello-world": {
+        "title": "Hello world blade"
+      }
+    }
+  },
+  "permissions": {
+    "ExtendedSecurity:access": "Open ExtendedSecurity menu",
+    "ExtendedSecurity:create": "Create ExtendedSecurity related data",
+    "ExtendedSecurity:read": "View ExtendedSecurity related data",
+    "ExtendedSecurity:update": "Update ExtendedSecurity related data",
+    "ExtendedSecurity:delete": "Delete ExtendedSecurity related data"
+  },
+  "settings": {
+    "ExtendedSecurity": {
+      "ExtendedSecurityEnabled": {
+        "title": "ExtendedSecurity Enabled",
+        "description": "ExtendedSecurity Enabled setting"
+      },
+      "ExtendedSecurityPassword": {
+        "title": "ExtendedSecurity Password",
+        "description": "ExtendedSecurity Password setting"
+      }
+    }
+  }
+}

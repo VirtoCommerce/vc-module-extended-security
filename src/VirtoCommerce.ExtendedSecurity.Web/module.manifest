@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+  <id>VirtoCommerce.ExtendedSecurity</id>
+  <version>3.800.0</version>
+  <version-tag></version-tag>
+
+  <platformVersion>3.823.0</platformVersion>
+  <dependencies>
+    <!--<dependency id="VirtoCommerce.Core" version="3.800.0" />-->
+  </dependencies>
+
+  <title>VirtoCommerce ExtendedSecurity module</title>
+  <description>VirtoCommerce ExtendedSecurity module</description>
+
+  <authors>
+    <author>Virto Commerce</author>
+  </authors>
+  <owners>
+    <owner>VirtoCommerce</owner>
+  </owners>
+
+  <projectUrl>https://github.com/VirtoCommerce/vc-module-extended-security</projectUrl>
+  <iconUrl>Modules/$(VirtoCommerce.ExtendedSecurity)/Content/logo.png</iconUrl>
+  <requireLicenseAcceptance>false</requireLicenseAcceptance>
+
+  <assemblyFile>VirtoCommerce.ExtendedSecurity.Web.dll</assemblyFile>
+  <moduleType>VirtoCommerce.ExtendedSecurity.Web.Module, VirtoCommerce.ExtendedSecurity.Web</moduleType>
+
+  <releaseNotes>First version.</releaseNotes>
+  <copyright>Copyright © 2024 VirtoCommerce. All rights reserved</copyright>
+  <tags>extension module</tags>
+  <useFullTypeNameInSwagger>false</useFullTypeNameInSwagger>
+</module>
