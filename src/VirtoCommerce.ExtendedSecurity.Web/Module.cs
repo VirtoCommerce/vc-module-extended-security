@@ -3,13 +3,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using VirtoCommerce.ExtendedSecurity.Core;
+using VirtoCommerce.ExtendedSecurity.Core.Models;
 using VirtoCommerce.ExtendedSecurity.Data.MySql;
 using VirtoCommerce.ExtendedSecurity.Data.PostgreSql;
 using VirtoCommerce.ExtendedSecurity.Data.Repositories;
 using VirtoCommerce.ExtendedSecurity.Data.SqlServer;
+using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.Modularity;
 using VirtoCommerce.Platform.Core.Security;
 using VirtoCommerce.Platform.Core.Settings;
+using VirtoCommerce.Platform.Security.Repositories;
 
 namespace VirtoCommerce.ExtendedSecurity.Web;
 
@@ -39,12 +42,8 @@ public class Module : IModule, IHasConfiguration
             }
         });
 
-        // Override models
-        //AbstractTypeFactory<OriginalModel>.OverrideType<OriginalModel, ExtendedModel>().MapToType<ExtendedEntity>();
-        //AbstractTypeFactory<OriginalEntity>.OverrideType<OriginalEntity, ExtendedEntity>();
-
-        // Register services
-        //serviceCollection.AddTransient<IMyService, MyService>();
+        AbstractTypeFactory<ApplicationUser>.OverrideType<ApplicationUser, ExtendedApplicationUser>();
+        serviceCollection.AddTransient<SecurityDbContext, ExtendedSecurityDbContext>();
     }
 
     public void PostInitialize(IApplicationBuilder appBuilder)
