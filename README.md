@@ -1,5 +1,6 @@
 # Extending ApplicationUser
-Create `ExtendedSecurityDbContext` class derived from `SecurityDbContext` or change the base class of your existing DbContext to `SecurityDbContext`:
+Create `ExtendedSecurityDbContext` class derived from `SecurityDbContext` or change the base class of your existing DbContext to `SecurityDbContext`.
+Override the `OnModelCreating()` method and add `modelBuilder.UseOpenIddict();`:
 ```csharp
 using Microsoft.EntityFrameworkCore;
 using VirtoCommerce.Platform.Security.Repositories;
@@ -14,6 +15,14 @@ public class ExtendedSecurityDbContext : SecurityDbContext
     protected ExtendedSecurityDbContext(DbContextOptions options)
         : base(options)
     {
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+    
+        modelBuilder.UseOpenIddict();
+        ...
     }
 }
 ```
@@ -46,11 +55,13 @@ public class ExtendedApplicationUser : ApplicationUser
 }
 ```
 
-In `ExtendedSecurityDbContext` override the `OnModelCreating()` method:
+In the `ExtendedSecurityDbContext.OnModelCreating()` method add your `ExtendedApplicationUser` entity:
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
     base.OnModelCreating(modelBuilder);
+    
+    modelBuilder.UseOpenIddict();
 
     modelBuilder.Entity<ExtendedApplicationUser>().Property("Discriminator").HasDefaultValue(nameof(ExtendedApplicationUser));
     ...
