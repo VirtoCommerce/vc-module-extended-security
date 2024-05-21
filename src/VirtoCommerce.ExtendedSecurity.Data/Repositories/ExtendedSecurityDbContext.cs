@@ -21,6 +21,8 @@ public class ExtendedSecurityDbContext : SecurityDbContext
     {
         base.OnModelCreating(modelBuilder);
 
+        modelBuilder.UseOpenIddict();
+
         modelBuilder.Entity<ExtendedApplicationUser>().Property("Discriminator").HasDefaultValue(nameof(ExtendedApplicationUser));
 
         switch (Database.ProviderName)
