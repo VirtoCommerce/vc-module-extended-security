@@ -1,6 +1,6 @@
 # Extending ApplicationUser
 1. Create `ExtendedSecurityDbContext` class derived from `SecurityDbContext` or change the base class of your existing DbContext to `SecurityDbContext`.
-Override the `OnModelCreating()` method and add `modelBuilder.UseOpenIddict();`:
+Override the `OnModelCreating()` method and add `modelBuilder.UseOpenIddict<...>();`:
 ```csharp
 using Microsoft.EntityFrameworkCore;
 using VirtoCommerce.Platform.Security.Repositories;
@@ -21,7 +21,11 @@ public class ExtendedSecurityDbContext : SecurityDbContext
     {
         base.OnModelCreating(modelBuilder);
     
-        modelBuilder.UseOpenIddict();
+        modelBuilder.UseOpenIddict<VirtoOpenIddictEntityFrameworkCoreApplication,
+                                   VirtoOpenIddictEntityFrameworkCoreAuthorization,
+                                   VirtoOpenIddictEntityFrameworkCoreScope,
+                                   VirtoOpenIddictEntityFrameworkCoreToken,
+                                   string>();
         ...
     }
 }
@@ -61,7 +65,11 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 {
     base.OnModelCreating(modelBuilder);
     
-    modelBuilder.UseOpenIddict();
+    modelBuilder.UseOpenIddict<VirtoOpenIddictEntityFrameworkCoreApplication,
+                               VirtoOpenIddictEntityFrameworkCoreAuthorization,
+                               VirtoOpenIddictEntityFrameworkCoreScope,
+                               VirtoOpenIddictEntityFrameworkCoreToken,
+                               string>();
 
     modelBuilder.Entity<ExtendedApplicationUser>().Property("Discriminator").HasDefaultValue(nameof(ExtendedApplicationUser));
     ...
@@ -73,12 +81,26 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 dotnet ef migrations add ExtendApplicationUser
 ```
 
-6. In the `Module.Initialize()` method override `ApplicationUser` and `SecurityDbContext`:
+6. Create `ExtendedUserStore` class derived form the platform's `CustomUserStore`, and pass the `ExtendedSecurityDbContext` to its constructor:
+```csharp
+using Microsoft.AspNetCore.Identity;
+using VirtoCommerce.ExtendedSecurity.Data.Repositories;
+using VirtoCommerce.Platform.Security;
+
+namespace VirtoCommerce.ExtendedSecurity.Data.Services;
+
+public class ExtendedUserStore(ExtendedSecurityDbContext context, IdentityErrorDescriber describer = null)
+    : CustomUserStore(context, describer)
+{
+}
+```
+
+7. In the `Module.Initialize()` method override `ApplicationUser` and `IUserStore<ApplicationUser>`:
 ```csharp
 public void Initialize(IServiceCollection serviceCollection)
 {
     ...
     AbstractTypeFactory<ApplicationUser>.OverrideType<ApplicationUser, ExtendedApplicationUser>();
-    serviceCollection.AddTransient<SecurityDbContext, ExtendedSecurityDbContext>();
+    serviceCollection.AddScoped<IUserStore<ApplicationUser>, ExtendedUserStore>();
 }
 ```
