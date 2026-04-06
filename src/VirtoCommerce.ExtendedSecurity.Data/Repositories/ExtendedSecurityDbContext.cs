@@ -1,6 +1,7 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using VirtoCommerce.ExtendedSecurity.Core.Models;
+using VirtoCommerce.Platform.Security.Model.OpenIddict;
 using VirtoCommerce.Platform.Security.Repositories;
 
 namespace VirtoCommerce.ExtendedSecurity.Data.Repositories;
@@ -21,7 +22,11 @@ public class ExtendedSecurityDbContext : SecurityDbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.UseOpenIddict();
+        modelBuilder.UseOpenIddict<VirtoOpenIddictEntityFrameworkCoreApplication,
+                                   VirtoOpenIddictEntityFrameworkCoreAuthorization,
+                                   VirtoOpenIddictEntityFrameworkCoreScope,
+                                   VirtoOpenIddictEntityFrameworkCoreToken,
+                                   string>();
 
         modelBuilder.Entity<ExtendedApplicationUser>().Property("Discriminator").HasDefaultValue(nameof(ExtendedApplicationUser));
 

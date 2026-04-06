@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,6 +8,7 @@ using VirtoCommerce.ExtendedSecurity.Core.Models;
 using VirtoCommerce.ExtendedSecurity.Data.MySql;
 using VirtoCommerce.ExtendedSecurity.Data.PostgreSql;
 using VirtoCommerce.ExtendedSecurity.Data.Repositories;
+using VirtoCommerce.ExtendedSecurity.Data.Services;
 using VirtoCommerce.ExtendedSecurity.Data.SqlServer;
 using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.Modularity;
@@ -15,7 +17,6 @@ using VirtoCommerce.Platform.Core.Settings;
 using VirtoCommerce.Platform.Data.MySql.Extensions;
 using VirtoCommerce.Platform.Data.PostgreSql.Extensions;
 using VirtoCommerce.Platform.Data.SqlServer.Extensions;
-using VirtoCommerce.Platform.Security.Repositories;
 
 namespace VirtoCommerce.ExtendedSecurity.Web;
 
@@ -46,7 +47,7 @@ public class Module : IModule, IHasConfiguration
         });
 
         AbstractTypeFactory<ApplicationUser>.OverrideType<ApplicationUser, ExtendedApplicationUser>();
-        serviceCollection.AddTransient<SecurityDbContext, ExtendedSecurityDbContext>();
+        serviceCollection.AddScoped<IUserStore<ApplicationUser>, ExtendedUserStore>();
     }
 
     public void PostInitialize(IApplicationBuilder appBuilder)
