@@ -9,11 +9,11 @@ public static class ModuleConstants
     {
         public static class Permissions
         {
-            public const string Access = "ExtendedSecurity:access";
-            public const string Create = "ExtendedSecurity:create";
-            public const string Read = "ExtendedSecurity:read";
-            public const string Update = "ExtendedSecurity:update";
-            public const string Delete = "ExtendedSecurity:delete";
+            public const string Access = "extended-security:access";
+            public const string Create = "extended-security:create";
+            public const string Read = "extended-security:read";
+            public const string Update = "extended-security:update";
+            public const string Delete = "extended-security:delete";
 
             public static string[] AllPermissions { get; } =
             [
@@ -32,18 +32,10 @@ public static class ModuleConstants
         {
             public static SettingDescriptor ExtendedSecurityEnabled { get; } = new()
             {
-                Name = "ExtendedSecurity.ExtendedSecurityEnabled",
+                Name = "ExtendedSecurity.Enabled",
                 GroupName = "ExtendedSecurity|General",
                 ValueType = SettingValueType.Boolean,
                 DefaultValue = false,
-            };
-
-            public static SettingDescriptor ExtendedSecurityPassword { get; } = new()
-            {
-                Name = "ExtendedSecurity.ExtendedSecurityPassword",
-                GroupName = "ExtendedSecurity|Advanced",
-                ValueType = SettingValueType.SecureString,
-                DefaultValue = "qwerty",
             };
 
             public static IEnumerable<SettingDescriptor> AllGeneralSettings
@@ -51,7 +43,6 @@ public static class ModuleConstants
                 get
                 {
                     yield return ExtendedSecurityEnabled;
-                    yield return ExtendedSecurityPassword;
                 }
             }
         }

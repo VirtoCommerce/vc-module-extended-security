@@ -13,7 +13,7 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ExtendedSe
 
         builder.UseSqlServer(
             connectionString,
-            options => options.MigrationsAssembly(GetType().Assembly.GetName().Name));
+            options => options.MigrationsAssembly(typeof(SqlServerDataAssemblyMarker).Assembly.GetName().Name));
 
         return new ExtendedSecurityDbContext(builder.Options);
     }

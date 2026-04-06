@@ -1,5 +1,5 @@
 // Call this to register your module to main application
-var moduleName = 'ExtendedSecurity';
+var moduleName = 'VirtoCommerce.ExtendedSecurity';
 
 if (AppDependencies !== undefined) {
     AppDependencies.push(moduleName);
@@ -10,14 +10,14 @@ angular.module(moduleName, [])
         function ($stateProvider) {
             $stateProvider
                 .state('workspace.ExtendedSecurityState', {
-                    url: '/ExtendedSecurity',
+                    url: '/extended-security',
                     templateUrl: '$(Platform)/Scripts/common/templates/home.tpl.html',
                     controller: [
                         'platformWebApp.bladeNavigationService',
                         function (bladeNavigationService) {
                             var newBlade = {
                                 id: 'blade1',
-                                controller: 'ExtendedSecurity.helloWorldController',
+                                controller: 'VirtoCommerce.ExtendedSecurity.helloWorldController',
                                 template: 'Modules/$(VirtoCommerce.ExtendedSecurity)/Scripts/blades/hello-world.html',
                                 isClosingDisabled: true,
                             };
@@ -31,12 +31,12 @@ angular.module(moduleName, [])
         function (mainMenuService, $state) {
             //Register module in main menu
             var menuItem = {
-                path: 'browse/ExtendedSecurity',
+                path: 'browse/extended-security',
                 icon: 'fa fa-cube',
                 title: 'ExtendedSecurity',
                 priority: 100,
                 action: function () { $state.go('workspace.ExtendedSecurityState'); },
-                permission: 'ExtendedSecurity:access',
+                permission: 'extended-security:access',
             };
             mainMenuService.addMenuItem(menuItem);
         }

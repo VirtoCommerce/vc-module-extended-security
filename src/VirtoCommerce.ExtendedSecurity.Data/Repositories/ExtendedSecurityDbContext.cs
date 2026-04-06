@@ -1,5 +1,6 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
+//using VirtoCommerce.Platform.Data.Extensions;
 using VirtoCommerce.Platform.Data.Infrastructure;
 
 namespace VirtoCommerce.ExtendedSecurity.Data.Repositories;
@@ -20,8 +21,7 @@ public class ExtendedSecurityDbContext : DbContextBase
     {
         base.OnModelCreating(modelBuilder);
 
-        //modelBuilder.Entity<ExtendedSecurityEntity>().ToTable("ExtendedSecurity").HasKey(x => x.Id);
-        //modelBuilder.Entity<ExtendedSecurityEntity>().Property(x => x.Id).HasMaxLength(128).ValueGeneratedOnAdd();
+        //modelBuilder.Entity<ExtendedSecurityEntity>().ToAuditableEntityTable("ExtendedSecurity");
 
         switch (Database.ProviderName)
         {
