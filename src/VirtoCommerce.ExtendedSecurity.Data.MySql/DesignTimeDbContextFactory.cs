@@ -9,12 +9,12 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ExtendedSe
     public ExtendedSecurityDbContext CreateDbContext(string[] args)
     {
         var builder = new DbContextOptionsBuilder<ExtendedSecurityDbContext>();
-        var connectionString = args.Any() ? args[0] : "Server=localhost;User=virto;Password=virto;Database=VirtoCommerce3;";
+        var connectionString = args.Length != 0 ? args[0] : "Server=localhost;User=virto;Password=virto;Database=VirtoCommerce3;";
 
         builder.UseMySql(
             connectionString,
             ResolveServerVersion(args, connectionString),
-            options => options.MigrationsAssembly(GetType().Assembly.GetName().Name));
+            options => options.MigrationsAssembly(typeof(MySqlDataAssemblyMarker).Assembly.GetName().Name));
 
         return new ExtendedSecurityDbContext(builder.Options);
     }

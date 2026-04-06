@@ -1,5 +1,5 @@
-angular.module('ExtendedSecurity')
-    .controller('ExtendedSecurity.helloWorldController', ['$scope', 'ExtendedSecurity.webApi', function ($scope, api) {
+angular.module('VirtoCommerce.ExtendedSecurity')
+    .controller('VirtoCommerce.ExtendedSecurity.helloWorldController', ['$scope', 'VirtoCommerce.ExtendedSecurity.webApi', function ($scope, api) {
         var blade = $scope.blade;
         blade.title = 'ExtendedSecurity';
 
